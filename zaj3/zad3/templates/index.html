@@ -1,0 +1,22 @@
+<html>
+   <body>
+      <form action = "http://localhost:5000/index" method = "post">
+         <p>Dodaj zadanie:</p>
+         <p><input type = "text" name = "task" /></p>
+         <p><input type = "submit" value = "Dodaj" /></p>
+      </form>
+
+      <ul>
+        {% for task in tasks %}
+            <li>{{task}}</li>
+            <button type="button">Edytuj</button>
+            <button type="button">Usuń</button>
+        {% endfor %}
+      </ul>
+
+      <!doctype html>
+
+      
+   </body>
+</html>
+
