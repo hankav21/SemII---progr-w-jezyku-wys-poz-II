@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obecne wypożyczenia czytelnika</title>
+    {% include '_navbar_czytelnik.html' %}
+</head>
+<body>
+    <h1>Obecne wypożyczenia czytelnika {{czytelnik}}</h1>
+
+    <h3>Rezerwacje:</h3>
+    {% for pozycja in rezerwacje %}
+    <form method="post">
+        <li>
+            {{pozycja.ksiazka.autor}} "{{pozycja.ksiazka.tytul}}" data rezerwacji: {{pozycja.data_wypozyczenia}}
+            <input type="hidden" name="rezerwacja_id" value="{{ pozycja.id }}">
+            <button type="submit" >Anuluj rezerwacje</button>
+        </li>
+    </form>
+    {% endfor %}
+
+    <h3>Wypozyczone:</h3>
+    {% for pozycja in wypozyczenia %}
+        <li>
+            {{pozycja.ksiazka.autor}} "{{pozycja.ksiazka.tytul}}" data wypożyczenia: {{pozycja.data_wypozyczenia}} 
+            termin oddania: {{pozycja.data_zwrotu}}
+        </li>
+    {% endfor %}
+</body>
+</html>
